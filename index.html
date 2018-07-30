@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JAMster Lo-Fi Prototype</title>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Released</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="song in songs">
+                <td>
+                <a :href="song.web_url">
+                    {{song.title}}
+                </a>
+                </td>
+                <td>{{song.artist}}</td>
+                <td>{{song.year}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
+    
+    <!-- ViewModel -->
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                songs:[]
+            },
+            created:function() {
+                fetch('https://api.myjson.com/bins/18oslu')
+                .then(res => res.json())
+                .then(res => {
+                this.songs = res.songs;
+                })
+            }
+        })
+    </script>
+</body>
+</html>
