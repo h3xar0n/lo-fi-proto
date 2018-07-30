@@ -4,10 +4,9 @@ Low fidelity prototype that meets the bare minimum requirements, using no
 libraries execept for basic Vue.js.
 
 List of songs taken from 
-[http://davidpots.com/jakeworry/017%20JSON%20Grouping,%20part%203/017.html]
+[here](http://davidpots.com/jakeworry/017%20JSON%20Grouping,%20part%203/017.html)
 
-and formatted as JSON store here:
-[http://myjson.com/18oslu]
+and formatted as JSON store [here](http://myjson.com/18oslu)
 
 ## Requirements:
 
