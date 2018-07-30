@@ -17,11 +17,11 @@ Create an application that allows a user to manage their songs.
 
 User should be able to...
 
-[x]- display their songs
+- [x] display their songs
 
-[]- sort by album name, song title, and other useful attributes
+- [ ] sort by album name, song title, and other useful attributes
 
-[]- search by song title (bonus points for other search criteria)
+- [ ] search by song title (bonus points for other search criteria)
 
 
 What else would you like to see in a music library manager?
