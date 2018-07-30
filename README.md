@@ -18,7 +18,7 @@ Create an application that allows a user to manage their songs.
 
 - [x] display their songs
 
-- [ ] sort by album name, song title, and other useful attributes
+- [x] sort by album name, song title, and other useful attributes
 
 - [ ] search by song title (bonus points for other search criteria)
 
