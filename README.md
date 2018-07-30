@@ -15,7 +15,7 @@ The Music Library
 
 Create an application that allows a user to manage their songs. 
 
-User should be able to...
+### User should be able to...
 
 - [x] display their songs
 
