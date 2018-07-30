@@ -11,6 +11,9 @@
 
 <body>
     <div id="app">
+        <div class="search-wrapper">
+        <input type="text" v-model="search" placeholder="Search title.."/>
+        </div>
         <table>
             <thead>
             <tr>
@@ -41,9 +44,10 @@
         const app = new Vue({
             el:'#app',
             data:{
-                songs:[],
-                currentSort:'title',
-                currentSortDir:'ascending'
+                search: '',
+                songs: [],
+                currentSort: 'title',
+                currentSortDir: 'ascending'
             },
             created:function() {
                 fetch('https://api.myjson.com/bins/18oslu')
@@ -64,13 +68,16 @@
             },
             computed:{
                 sortedSongs:function() {
-                return this.songs.sort((a,b) => {
-                    let modifier = 1;
-                    if(this.currentSortDir === 'descending') modifier = -1;
-                    if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
-                    if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
-                    return 0;
-                });
+                    let sorted = this.songs.sort((a,b) => {
+                        let modifier = 1;
+                        if(this.currentSortDir === 'descending') modifier = -1;
+                        if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
+                        if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
+                        return 0;
+                    })
+                    return sorted.filter(song => { 
+                        return song.title.toLowerCase().includes(this.search.toLowerCase());
+                    })
                 }
             }
         })
