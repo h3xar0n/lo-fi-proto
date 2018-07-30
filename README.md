@@ -20,7 +20,7 @@ Create an application that allows a user to manage their songs.
 
 - [x] sort by album name, song title, and other useful attributes
 
-- [ ] search by song title (bonus points for other search criteria)
+- [x] search by song title (bonus points for other search criteria)
 
 
 What else would you like to see in a music library manager?
