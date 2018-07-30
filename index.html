@@ -9,9 +9,9 @@
         <table>
             <thead>
             <tr>
-                <th>Title</th>
-                <th>Artist</th>
-                <th>Released</th>
+                <th @click="sort('title')">Title</th>
+                <th @click="sort('artist')">Artist</th>
+                <th @click="sort('year')">Released</th>
             </tr>
             </thead>
             <tbody>
@@ -36,7 +36,9 @@
         const app = new Vue({
             el:'#app',
             data:{
-                songs:[]
+                songs:[],
+                currentSort:'title',
+                currentSortDir:'ascending'
             },
             created:function() {
                 fetch('https://api.myjson.com/bins/18oslu')
@@ -44,6 +46,27 @@
                 .then(res => {
                 this.songs = res.songs;
                 })
+            },
+            methods:{
+                sort:function(s) {
+                //if s === current sort, reverse
+                if(s === this.currentSort) {
+                    this.currentSortDir = this.currentSortDir==='ascending'?'descending':'ascending';
+                }
+                // store it afterwards
+                this.currentSort = s;
+                }
+            },
+            computed:{
+                sortedSongs:function() {
+                return this.songs.sort((a,b) => {
+                    let modifier = 1;
+                    if(this.currentSortDir === 'descending') modifier = -1;
+                    if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
+                    if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
+                    return 0;
+                });
+                }
             }
         })
     </script>
